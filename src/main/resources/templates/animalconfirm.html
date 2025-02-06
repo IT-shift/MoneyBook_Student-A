@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>あなたの家のペット登録確認画面</title>
+</head>
+<body>
+<h1>あなたの家のペット登録確認画面</h1>
+<table th:object="${animalForm}" border="1">
+	<tr>
+		<th>ペットの名前</th>
+		<td th:text="*{animalName}">名前</td>
+	</tr>
+
+	<!-- 設問3 -->
+	<tr>
+		<th>ペットの種類</th>
+		<td th:text="*{animalKind}">種類</td>
+	</tr>
+	<tr>
+		<th>ペットの年齢</th>
+		<td th:text="*{animalAge}">年齢</td>
+	</tr>
+	<!-- -->
+	
+	<tr>
+		<th>飼い始めた日付</th>
+		<td th:text="*{animalDate}">日付</td> <!-- 設問4 -->
+	</tr>
+</table>
+</body>
+</html>

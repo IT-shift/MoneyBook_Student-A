@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>イベント登録フォーム</title>
+</head>
+<body>
+<h1>イベント登録フォーム</h1>
+<form th:action="@{/confirmRegistration}" th:object="${eventRegistrationForm}" method="post"> <!-- ⓵ -->
+    <label>参加者名:</label>
+    <input type="text" th:field="*{participantName}" /> <!-- ⓶ -->
+    <br />
+    <label>メールアドレス:</label>
+    <input type="email" th:field="*{email}" /> <!-- ⓷ -->
+    <br />
+    <label>イベント日付:</label>
+    <input type="date" th:field="*{eventDate}" /> <!-- ⓸ -->
+    <br />
+    <button type="submit">確認</button>
+</form>
+</body>
+</html>

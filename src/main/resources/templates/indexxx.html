@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current DateTime App</title>
+</head>
+<body>
+    <h1>Current DateTime App</h1>
+
+    <!-- 現在の日時を表示するエリア -->
+    <div>
+        <h2 th:if="${currentDateTime != null}">現在の日時: <span th:text="${currentDateTime}"></span></h2>
+    </div>
+
+    <!-- ボタンを押すと現在の日時を取得 -->
+    <form action="/datetime" method="post">
+        <button type="submit">現在の日時を表示</button>
+    </form>
+</body>
+</html>
