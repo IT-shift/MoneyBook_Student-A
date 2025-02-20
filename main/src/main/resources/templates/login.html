@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>経費計算システム - ログイン</title>
+    <style>
+        .error { color: red; }
+        .input-label {
+            display: inline-block;
+            width: 100px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            margin-right: 10px;
+        }
+        .input-field {
+            width: 200px;
+            padding: 5px;
+        }
+        .go-button {
+            background-color: blue;
+            color: white;
+            padding: 5px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>経費計算システム</h1>
+    <h2>ログイン</h2>
+
+    <p class="error" th:if="${loginError}" th:text="${loginError}"></p>
+
+    <form action="/login" method="post">
+        <div>
+            <span class="input-label">ID</span>
+            <input type="text" name="id" class="input-field">
+            <span class="error" th:if="${idError}" th:text="${idError}"></span>
+        </div>
+        <br>
+        <div>
+            <span class="input-label">パスワード</span>
+            <input type="password" name="password" class="input-field">
+            <span class="error" th:if="${passwordError}" th:text="${passwordError}"></span>
+        </div>
+        <br>
+        <button type="submit" class="go-button">GO</button>
+    </form>
+</body>
+</html>
