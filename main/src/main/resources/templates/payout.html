@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>支出管理</title>
+</head>
+<body>
+    <div>
+        <button onclick="location.href='/payout'">支出入力</button>
+        <button onclick="location.href='/income'">収入入力</button>
+        <button onclick="location.href='/summary'">集計データ</button>
+        <button onclick="location.href='/logout'">ログアウト</button>
+    </div>
+
+    <h1>支出</h1>
+
+    <form method="post" action="/payout/add">
+        <input type="date" name="date" required>
+        <input type="text" name="classification" placeholder="分類" required>
+        <input type="number" name="amount" placeholder="金額" required>
+        <input type="text" name="shop" placeholder="店舗">
+        <input type="text" name="payment" placeholder="支払方法">
+        <input type="text" name="memo" placeholder="メモ">
+        <button type="submit">登録</button>
+    </form>
+
+    <p th:if="${error}" style="color: red;">[[${error}]]</p>
+
+    <table border="1">
+        <tr>
+            <th>No.</th>
+            <th>日時</th>
+            <th>分類</th>
+            <th>金額</th>
+            <th>店舗</th>
+            <th>支払方法</th>
+            <th>メモ</th>
+<!--            <th>更新</th>-->
+<!--            <th>削除</th>-->
+        </tr>
+        <tr th:each="payout, iterStat : ${payouts}">
+            <form method="post" action="/payout/update">
+                <input type="hidden" name="id" th:value="${payout.id}">
+                <td>[[${iterStat.count}]]</td>
+                <td><input type="date" name="date" th:value="${payout.date}"></td>
+                <td><input type="text" name="classification" th:value="${payout.classification}"></td>
+                <td><input type="number" name="amount" th:value="${payout.amount}"></td>
+                <td><input type="text" name="shop" th:value="${payout.shop}"></td>
+                <td><input type="text" name="payment" th:value="${payout.payment}"></td>
+                <td><input type="text" name="memo" th:value="${payout.memo}"></td>
+                <td><button type="submit">更新</button></td>
+            </form>
+            <td>
+                <form method="post" action="/payout/delete">
+                    <input type="hidden" name="id" th:value="${payout.id}">
+                    <button type="submit">削除</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

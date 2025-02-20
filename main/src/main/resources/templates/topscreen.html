@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<meta charset="UTF-8" />
+<title>トップ画面</title>
+<style>
+	.head {
+		text-align: right;
+		margin: 10px 30px;
+	}
+
+	a {
+		margin-left: 10px;
+		margin-right: 10px;
+		border: solid 2px black;
+		border-radius: 10px;
+		text-decoration: none;
+		padding-left: 20px;
+		padding-right: 20px;
+		background-color: whitesmoke;
+	}
+
+	.body {
+		text-align: center;
+		margin: 30px 20%;
+	}
+
+	.login {
+		border-bottom: 3px solid;
+		text-align: left;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	h2 {
+		text-align: right;
+	}
+</style>
+<div class=head>
+	<a href="http://localhost:8080/payout" target="_blank">支出入力</a>
+	<a href="http://localhost:8080/income" target="_blank">収入入力</a>
+	<a href="http://localhost:8080/summary" target="_blank">集計データ</a>
+	<a href="http://localhost:8080/login" target="_blank">ログアウト</a>
+</div>
+</head>
+
+<body>
+	<div class=body>
+		<h1 class=login>ログインしました</h1>
+		<h2>おかえりなさい、〇〇さん</h2>
+	</div>
+</body>
+</html>
